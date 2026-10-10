@@ -3,7 +3,7 @@
 #pragma GCC target("avx2")
 #include <bits/stdc++.h>
 
-#include <cassert>
+#include <assert.h>
 
 using namespace std;
 
@@ -113,12 +113,14 @@ void __Test(string in_str, string out_str, T& f, string f_str) {
     const std::string RED = "\033[31m";
     const std::string GREEN = "\033[32m";
 
-    if (out_str == "" || __EQ(out.str(), out_str))
-        cout << GREEN << "OK";
-    else
-        cout << RED << "WA";
+    if (out_str != "") {
+        if (__EQ(out.str(), out_str))
+            cout << GREEN << "OK: ";
+        else
+            cout << RED << "WA: ";
+    }
 
-	cout << ": test" << number_test++;
+	cout << "test" << number_test++;
 	if (f_str != "main0")
 		cout << " (function: " << f_str << ")";
 	cout << "\nin:\n" << in_str << "\nout:\n" << out.str();
